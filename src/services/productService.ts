@@ -36,3 +36,8 @@ export async function getProductsByCategory(
   );
   return withLocalImages(products);
 }
+
+export async function getProductById(id: number): Promise<Product> {
+  const product = await fetchFromApi<Product>(`/products/${id}`);
+  return withLocalImages([product])[0];
+}

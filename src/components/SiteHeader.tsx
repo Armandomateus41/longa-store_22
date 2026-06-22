@@ -59,7 +59,7 @@ export function SiteHeader({
                 <span className="store-utility__label">
                   Onde está meu produto?
                 </span>
-                <Link to="/pedido-confirmado" className="store-utility__action">
+                <Link to="/rastrear-pedido" className="store-utility__action">
                   Rastrear pedido
                 </Link>
               </div>

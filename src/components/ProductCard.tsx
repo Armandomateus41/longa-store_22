@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { FaCheck, FaShoppingCart } from "react-icons/fa";
 import { useCart } from "../context/CartContext";
 import type { Product } from "../types/product";
@@ -20,22 +21,26 @@ export function ProductCard({ product }: ProductCardProps) {
 
   return (
     <article className="product-card">
-      <div className="product-image-wrapper">
-        <img
-          src={product.image}
-          alt={`${product.title} — ${formatCategoryLabel(product.category)}`}
-          className="product-image"
-          loading="lazy"
-        />
-      </div>
+      <Link to={`/produto/${product.id}`} className="product-card__link">
+        <div className="product-image-wrapper">
+          <img
+            src={product.image}
+            alt={`${product.title} — ${formatCategoryLabel(product.category)}`}
+            className="product-image"
+            loading="lazy"
+          />
+        </div>
 
-      <div className="product-info">
-        <span className="product-category">
-          {formatCategoryLabel(product.category)}
-        </span>
-        <h2 className="product-title">{product.title}</h2>
-        <p className="product-price">{formatPrice(product.price)}</p>
+        <div className="product-info">
+          <span className="product-category">
+            {formatCategoryLabel(product.category)}
+          </span>
+          <h2 className="product-title">{product.title}</h2>
+          <p className="product-price">{formatPrice(product.price)}</p>
+        </div>
+      </Link>
 
+      <div className="product-card__actions">
         <button
           className={`add-button${added ? " is-added" : ""}`}
           type="button"

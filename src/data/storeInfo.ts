@@ -1,6 +1,13 @@
 export const storeName = "Longa Store";
+export const storeLiveUrl = "https://longa-store-22.vercel.app";
 
-export type InfoNavId = "contact" | "about" | "shipping" | "faq";
+export type InfoNavId =
+  | "contact"
+  | "about"
+  | "shipping"
+  | "faq"
+  | "privacy"
+  | "returns";
 
 export const infoNavItems: {
   id: InfoNavId;
@@ -27,6 +34,16 @@ export const infoNavItems: {
     label: "Perguntas Frequentes",
     path: "/faq",
   },
+  {
+    id: "privacy",
+    label: "Política de Privacidade",
+    path: "/privacidade",
+  },
+  {
+    id: "returns",
+    label: "Trocas e Devoluções",
+    path: "/trocas",
+  },
 ];
 
 export const storeContact = {
@@ -34,8 +51,28 @@ export const storeContact = {
   whatsappLink: "https://wa.me/5534900000000",
   email: "trocaremail@gmail.com",
   phone: "(34) 9 0000-0000",
+  phoneLink: "tel:+5534900000000",
   hours: "Segunda à sexta, das 09:00 às 18:00",
 };
+
+export const storeSocialLinks = [
+  {
+    label: "Facebook",
+    href: "https://www.facebook.com/",
+  },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/",
+  },
+  {
+    label: "YouTube",
+    href: "https://www.youtube.com/",
+  },
+  {
+    label: "TikTok",
+    href: "https://www.tiktok.com/",
+  },
+];
 
 export const faqItems = [
   {

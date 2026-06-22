@@ -51,6 +51,13 @@ export function OrderSuccessPage() {
           <p className="order-success__note">
             Este é um fluxo demonstrativo. Nenhuma cobrança real foi realizada.
           </p>
+          <div className="order-success__actions">
+          <Link
+            to="/pedidos"
+            className="checkout-action checkout-action--secondary"
+          >
+            Ver meus pedidos
+          </Link>
           <Link
             to="/"
             className="checkout-action"
@@ -58,6 +65,7 @@ export function OrderSuccessPage() {
           >
             Voltar ao catálogo
           </Link>
+          </div>
         </div>
       </main>
 

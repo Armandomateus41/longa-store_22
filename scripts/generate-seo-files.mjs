@@ -9,13 +9,23 @@ const siteUrl = (process.env.VITE_SITE_URL ?? "https://longa-store-22.vercel.app
   ""
 );
 
-const indexablePaths = ["/", "/contato", "/sobre", "/entregas", "/faq"];
+const indexablePaths = [
+  "/",
+  "/contato",
+  "/sobre",
+  "/entregas",
+  "/faq",
+  "/privacidade",
+  "/trocas",
+];
 const disallowedPaths = [
   "/checkout",
   "/pagamento",
   "/conta",
   "/carrinho",
   "/pedido-confirmado",
+  "/pedidos",
+  "/rastrear-pedido",
 ];
 
 const lastmod = new Date().toISOString().slice(0, 10);

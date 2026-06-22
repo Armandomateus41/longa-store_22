@@ -4,6 +4,7 @@ import { CheckoutLayout } from "../components/CheckoutLayout";
 import { OrderSummary } from "../components/OrderSummary";
 import { useCart } from "../context/CartContext";
 import { useCheckout } from "../context/CheckoutContext";
+import { saveOrder } from "../services/orderStorage";
 import type { PaymentMethod } from "../types/checkout";
 import { storeImages } from "../data/storeImages";
 import { formatPrice } from "../utils/format";
@@ -41,6 +42,8 @@ export function PaymentPage() {
     return <Navigate to="/checkout" replace />;
   }
 
+  const orderShipping = shipping;
+
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setError("");
@@ -62,7 +65,14 @@ export function PaymentPage() {
     setIsProcessing(true);
 
     window.setTimeout(() => {
-      completeOrder();
+      const orderNumber = completeOrder();
+      saveOrder({
+        orderNumber,
+        items: [...items],
+        total,
+        shipping: orderShipping,
+        paymentMethod,
+      });
       clearCart();
       navigate("/pedido-confirmado");
     }, 900);

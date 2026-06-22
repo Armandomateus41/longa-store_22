@@ -24,6 +24,10 @@
 </p>
 
 <p align="center">
+  <a href="https://longa-store-22.vercel.app"><strong>Ver site ao vivo</strong></a>
+</p>
+
+<p align="center">
   <a href="https://github.com/Armandomateus41/longa-store_22">Repositório</a>
   ·
   <a href="./docs/CI.md">CI</a>

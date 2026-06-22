@@ -5,5 +5,7 @@ Disallow: /pagamento
 Disallow: /conta
 Disallow: /carrinho
 Disallow: /pedido-confirmado
+Disallow: /pedidos
+Disallow: /rastrear-pedido
 
 Sitemap: https://longa-store-22.vercel.app/sitemap.xml

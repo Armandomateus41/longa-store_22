@@ -1,34 +1,35 @@
 import { Link } from "react-router-dom";
+import { FaWhatsapp } from "react-icons/fa";
+import { FiClock, FiMail, FiPhone } from "react-icons/fi";
 import {
   FaFacebookF,
   FaInstagram,
   FaTiktok,
-  FaWhatsapp,
   FaYoutube,
 } from "react-icons/fa";
-import { FiClock, FiMail, FiPhone } from "react-icons/fi";
+import { storeContact, storeSocialLinks } from "../data/storeInfo";
 import { storeImages } from "../data/storeImages";
+
+const socialIcons = {
+  Facebook: FaFacebookF,
+  Instagram: FaInstagram,
+  YouTube: FaYoutube,
+  TikTok: FaTiktok,
+} as const;
 
 const menuLinks = [
   { label: "Sobre Nós", to: "/sobre" },
   { label: "Contato", to: "/contato" },
-  { label: "Meus Pedidos", to: "/pedido-confirmado" },
-  { label: "Acompanhe seus pedidos", to: "/pedido-confirmado" },
+  { label: "Meus Pedidos", to: "/pedidos" },
+  { label: "Rastrear pedido", to: "/rastrear-pedido" },
   { label: "Editar cadastro", to: "/conta" },
   { label: "Todos os Produtos", to: "/#catalog" },
 ];
 
 const policyLinks = [
-  { label: "Politicas de privacidade", to: "/contato" },
-  { label: "Politicas de devolução e trocas", to: "/faq" },
+  { label: "Politicas de privacidade", to: "/privacidade" },
+  { label: "Politicas de devolução e trocas", to: "/trocas" },
   { label: "Politicas de Entrega e Prazos", to: "/entregas" },
-];
-
-const socialLinks = [
-  { label: "Facebook", href: "#", icon: FaFacebookF },
-  { label: "Instagram", href: "#", icon: FaInstagram },
-  { label: "YouTube", href: "#", icon: FaYoutube },
-  { label: "TikTok", href: "#", icon: FaTiktok },
 ];
 
 export function SitePreFooter() {
@@ -42,19 +43,23 @@ export function SitePreFooter() {
             <ul className="site-prefooter__contact">
               <li>
                 <FiClock aria-hidden="true" />
-                Segunda a sexta: 8:00 às 18:00h
+                {storeContact.hours}
               </li>
               <li>
                 <FiPhone aria-hidden="true" />
-                Contato: (34) 9 0000 0000
+                <a href={storeContact.phoneLink}>Contato: {storeContact.phone}</a>
               </li>
               <li>
                 <FaWhatsapp aria-hidden="true" />
-                Whatsapp: (34) 9 0000 0000
+                <a href={storeContact.whatsappLink} target="_blank" rel="noreferrer">
+                  Whatsapp: {storeContact.whatsapp}
+                </a>
               </li>
               <li>
                 <FiMail aria-hidden="true" />
-                Email: trocaremail@gmail.com
+                <a href={`mailto:${storeContact.email}`}>
+                  Email: {storeContact.email}
+                </a>
               </li>
             </ul>
           </div>
@@ -82,16 +87,21 @@ export function SitePreFooter() {
 
             <h3 className="site-prefooter__subtitle">Onde nos encontrar:</h3>
             <div className="site-prefooter__social">
-              {socialLinks.map(({ label, href, icon: Icon }) => (
-                <a
-                  key={label}
-                  href={href}
-                  className="site-prefooter__social-link"
-                  aria-label={label}
-                >
-                  <Icon aria-hidden="true" />
-                </a>
-              ))}
+              {storeSocialLinks.map(({ label, href }) => {
+                const Icon = socialIcons[label as keyof typeof socialIcons];
+                return (
+                  <a
+                    key={label}
+                    href={href}
+                    className="site-prefooter__social-link"
+                    aria-label={label}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <Icon aria-hidden="true" />
+                  </a>
+                );
+              })}
             </div>
           </div>
 

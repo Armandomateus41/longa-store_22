@@ -96,6 +96,32 @@ export const routeSeo: Record<string, PageSeoConfig> = {
     path: "/faq",
     jsonLd: [organizationJsonLd, faqJsonLd],
   },
+  "/privacidade": {
+    title: "Política de Privacidade",
+    description:
+      "Saiba como a Longa Store trata dados pessoais, informações de conta e pedidos neste e-commerce.",
+    path: "/privacidade",
+    jsonLd: organizationJsonLd,
+  },
+  "/trocas": {
+    title: "Trocas e Devoluções",
+    description:
+      "Confira prazos, condições e como solicitar troca ou devolução de produtos na Longa Store.",
+    path: "/trocas",
+    jsonLd: organizationJsonLd,
+  },
+  "/pedidos": {
+    title: "Meus Pedidos",
+    description: "Consulte o histórico de pedidos realizados na Longa Store.",
+    path: "/pedidos",
+    noindex: true,
+  },
+  "/rastrear-pedido": {
+    title: "Rastrear Pedido",
+    description: "Acompanhe o status de entrega do seu pedido na Longa Store.",
+    path: "/rastrear-pedido",
+    noindex: true,
+  },
   "/conta": {
     title: "Minha Conta",
     description: "Acesse ou crie sua conta na Longa Store para finalizar compras e gerenciar seus dados.",
@@ -128,7 +154,15 @@ export const routeSeo: Record<string, PageSeoConfig> = {
   },
 };
 
-export const indexablePaths = ["/", "/contato", "/sobre", "/entregas", "/faq"];
+export const indexablePaths = [
+  "/",
+  "/contato",
+  "/sobre",
+  "/entregas",
+  "/faq",
+  "/privacidade",
+  "/trocas",
+];
 
 export function resolveSiteUrl(): string {
   const fromEnv = import.meta.env.VITE_SITE_URL?.replace(/\/$/, "");
@@ -144,6 +178,15 @@ export function resolveSiteUrl(): string {
 }
 
 export function getSeoForPath(pathname: string): PageSeoConfig {
+  if (pathname.startsWith("/produto/")) {
+    return {
+      ...defaultSeo,
+      title: "Produto",
+      description: defaultDescription,
+      path: pathname,
+    };
+  }
+
   const config = routeSeo[pathname] ?? defaultSeo;
 
   return {
