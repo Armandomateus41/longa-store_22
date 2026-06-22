@@ -23,7 +23,7 @@ export function ProductCard({ product }: ProductCardProps) {
       <div className="product-image-wrapper">
         <img
           src={product.image}
-          alt={product.title}
+          alt={`${product.title} — ${formatCategoryLabel(product.category)}`}
           className="product-image"
           loading="lazy"
         />

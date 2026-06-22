@@ -32,6 +32,15 @@ Guia operacional para publicar a **Longa Store** em produção.
 
 3. Clique em **Deploy**.
 
+## SEO e URL canônica
+
+Defina a variável de ambiente **`VITE_SITE_URL`** na Vercel com a URL pública do site (ex.: `https://longa-store-22.vercel.app` ou domínio customizado). Ela alimenta:
+
+- `canonical` e Open Graph em cada rota
+- `public/sitemap.xml` e `public/robots.txt` (gerados no build)
+
+Sem essa variável, o build usa um fallback e o runtime usa `window.location.origin` no navegador.
+
 O arquivo `vercel.json` na raiz já inclui o rewrite SPA necessário para o `react-router-dom`. Sem isso, rotas como `/contato` ou `/carrinho` retornam 404 ao atualizar a página.
 
 ## Deploy via CLI

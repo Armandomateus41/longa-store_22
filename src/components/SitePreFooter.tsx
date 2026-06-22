@@ -19,9 +19,9 @@ const menuLinks = [
 ];
 
 const policyLinks = [
-  "Politicas de privacidade",
-  "Politicas de devolução e trocas",
-  "Politicas de Entrega e Prazos",
+  { label: "Politicas de privacidade", to: "/contato" },
+  { label: "Politicas de devolução e trocas", to: "/faq" },
+  { label: "Politicas de Entrega e Prazos", to: "/entregas" },
 ];
 
 const socialLinks = [
@@ -74,8 +74,8 @@ export function SitePreFooter() {
             <h2>Nossas Políticas</h2>
             <ul className="site-prefooter__links">
               {policyLinks.map((item) => (
-                <li key={item}>
-                  <a href="#">{item}</a>
+                <li key={item.label}>
+                  <Link to={item.to}>{item.label}</Link>
                 </li>
               ))}
             </ul>

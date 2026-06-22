@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
+import { SeoManager } from "./components/seo/SeoManager";
 import { RequireAuth } from "./components/RequireAuth";
 import { AboutPage } from "./pages/AboutPage";
 import { AccountPage } from "./pages/AccountPage";
@@ -14,7 +15,9 @@ import { ShippingPage } from "./pages/ShippingPage";
 
 function App() {
   return (
-    <Routes>
+    <>
+      <SeoManager />
+      <Routes>
       <Route path="/" element={<CatalogPage />} />
       <Route path="/contato" element={<ContactPage />} />
       <Route path="/sobre" element={<AboutPage />} />
@@ -40,6 +43,7 @@ function App() {
       />
       <Route path="/pedido-confirmado" element={<OrderSuccessPage />} />
     </Routes>
+    </>
   );
 }
 

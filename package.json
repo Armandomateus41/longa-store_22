@@ -16,7 +16,8 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "node scripts/generate-seo-files.mjs && tsc -b && vite build",
+    "seo:generate": "node scripts/generate-seo-files.mjs",
     "lint": "eslint .",
     "preview": "vite preview",
     "download:images": "node scripts/download-images.mjs"

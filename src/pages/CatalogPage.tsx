@@ -144,7 +144,10 @@ export function CatalogPage() {
         onSelectCategory={handleSelectCategory}
       />
 
-      <main className="app" id="catalog">
+      <main className="app" id="catalog" aria-labelledby="catalog-heading">
+        <h1 id="catalog-heading" className="sr-only">
+          Catálogo de produtos — Longa Store
+        </h1>
         <div className="catalog-section__head">
           <h2>Catálogo</h2>
           {showCatalog && (

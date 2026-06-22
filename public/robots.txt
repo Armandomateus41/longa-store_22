@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /checkout
+Disallow: /pagamento
+Disallow: /conta
+Disallow: /carrinho
+Disallow: /pedido-confirmado
+
+Sitemap: https://longa-store-22.vercel.app/sitemap.xml
