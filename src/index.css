@@ -1,0 +1,86 @@
+:root {
+  --blue: #0066cc;
+  --blue-dark: #004d99;
+  --blue-soft: rgba(0, 102, 204, 0.08);
+  --navy: #0c1f33;
+  --orange: #ff5500;
+  --orange-hover: #e64d00;
+  --orange-soft: rgba(255, 85, 0, 0.1);
+
+  --text: #555555;
+  --text-h: #1a1a1a;
+  --text-muted: #888888;
+  --text-inverse: #ffffff;
+
+  --bg: #f5f5f5;
+  --surface: #ffffff;
+  --border: #e5e5e5;
+  --border-strong: #cccccc;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-card: 0 1px 4px rgba(0, 0, 0, 0.06);
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --max-width: 1200px;
+
+  --sans: "Inter", system-ui, -apple-system, sans-serif;
+  --heading: "Inter", system-ui, -apple-system, sans-serif;
+
+  font: 16px/1.6 var(--sans);
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100svh;
+  background: var(--bg);
+}
+
+#root {
+  min-height: 100svh;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+h1,
+h2 {
+  font-family: var(--heading);
+  font-weight: 700;
+  color: var(--text-h);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
